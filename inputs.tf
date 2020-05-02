@@ -8,16 +8,13 @@
 #                 |_|                  
 
 variable "name" {
-  type        = string
-  default     = ""
+  type = string
 }
 
 variable "assume_role_policy" {
-  type        = string
-  default     = ""
+  type = string
 }
 
 variable "role_policy" {
-  type        = string
-  default     = ""
+  type = string
 }

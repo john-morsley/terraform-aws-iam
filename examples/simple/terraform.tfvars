@@ -7,6 +7,4 @@
 
 # IAM
 
-variable "iam_role_name" {
-  type= string
-}
+iam_role_name = "ec2"

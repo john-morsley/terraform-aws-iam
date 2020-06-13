@@ -1,21 +1,19 @@
-#      ______                           _      
-#     |  ____|                         | |     
-#     | |__  __  ____ _ _ __ ___  _ __ | | ___ 
-#     |  __| \ \/ / _` | '_ ` _ \| '_ \| |/ _ \
-#     | |____ >  < (_| | | | | | | |_) | |  __/
-#     |______/_/\_\__,_|_| |_| |_| .__/|_|\___|
-#                                | |           
-#                                |_|           
+#      ______    _____   ___    _____       _
+#     |  ____|  / ____| |__ \  |  __ \     | |
+#     | |__    | |         ) | | |__) |___ | | ___
+#     |  __|   | |        / /  |  _  // _ \| |/ _ \
+#     | |____  | |____   / /_  | | \ \ (_) | |  __/
+#     |______|  \_____| |____| |_|  \_\___/|_|\___|
 
-module "iam" {
+module "ec2-role" {
 
   source = "./../../../terraform-aws-iam"
-  // #source = "john-morsley/terraform-aws-iam"
+  #source = "john-morsley/iam/aws"
 
-  name = "ec2"
+  name = var.iam_role_name
 
-  assume_role_policy = file("${path.module}/role.json")
+  assume_role_policy = file("${path.module}/iam/ec2-role.json")
 
-  role_policy = file("${path.module}/policy.json")
+  role_policy = file("${path.module}/iam/policy.json")
 
 }

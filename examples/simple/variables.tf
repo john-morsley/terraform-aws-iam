@@ -8,5 +8,5 @@
 # IAM
 
 variable "iam_role_name" {
-  type= string
+  type = string
 }

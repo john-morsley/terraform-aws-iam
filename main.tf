@@ -1,4 +1,4 @@
-﻿#      _____              __  __ 
+#      _____              __  __ 
 #     |_   _|     /\     |  \/  |
 #       | |      /  \    | \  / |
 #       | |     / /\ \   | |\/| |
@@ -10,12 +10,11 @@
 #          |  _  // _ \| |/ _ \
 #          | | \ \ (_) | |  __/
 #          |_|  \_\___/|_|\___|
-#
 
 resource "aws_iam_role" "this" {
 
   name = "${var.name}-role"
 
   assume_role_policy = var.assume_role_policy
-  
+
 }

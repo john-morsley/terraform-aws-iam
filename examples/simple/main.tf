@@ -7,8 +7,8 @@
 
 module "ec2-role" {
 
-  source = "./../../../terraform-aws-iam"
-  #source = "john-morsley/iam/aws"
+  source = "./../../../terraform-aws-iam-role"
+  #source = "john-morsley/iam-role/aws"
 
   name = var.iam_role_name
 

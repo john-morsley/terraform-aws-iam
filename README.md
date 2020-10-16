@@ -1,4 +1,4 @@
-﻿# Terraform an IAM in AWS
+# Terraform an IAM in AWS
 
 ## Examples
 

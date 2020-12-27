@@ -1,12 +1,33 @@
-#   __      __        _       _     _           
-#   \ \    / /       (_)     | |   | |          
-#    \ \  / /_ _ _ __ _  __ _| |__ | | ___  ___ 
-#     \ \/ / _` | '__| |/ _` | '_ \| |/ _ \/ __|
-#      \  / (_| | |  | | (_| | |_) | |  __/\__ \
-#       \/ \__,_|_|  |_|\__,_|_.__/|_|\___||___/
+﻿#      _______                   __                     
+#     |__   __|                 / _|                    
+#        | | ___ _ __ _ __ __ _| |_ ___  _ __ _ __ ___  
+#        | |/ _ \ '__| '__/ _` |  _/ _ \| '__| '_ ` _ \ 
+#        | |  __/ |  | | | (_| | || (_) | |  | | | | | |
+#        |_|\___|_|  |_|  \__,_|_| \___/|_|  |_| |_| |_|
 
-# IAM
+terraform {
 
-variable "iam_role_name" {
-  type = string
+  required_version = ">= 0.14"
+
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
+
+  # AWS requires the following environment variables:
+
+  # AWS_DEFAULT_REGION
+  # AWS_ACCESS_KEY_ID
+  # AWS_SECRET_ACCESS_KEY
+
+  backend "s3" {
+    bucket         = "morsley-io-terraform-backend-states"
+    key            = "terraform-modules/examples/aws-iam-role-module/simple"
+    region         = "eu-west-2"
+    dynamodb_table = "morsley-io-terraform-state-locks"
+    encrypt        = true
+  }
+
 }
